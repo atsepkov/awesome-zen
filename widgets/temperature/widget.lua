@@ -7,6 +7,7 @@
 local wibox = require("wibox")
 local naughty = require("naughty")
 
+local last_id
 widget = wibox.widget.textbox()
 function testtemps()
     local fd = io.popen(os.getenv("HOME") .. "/.config/awesome/widgets/temperature/sensors.sh")
@@ -48,6 +49,6 @@ function testtemps()
 end
 
 -- update every 30 secs
-temptimer = timer({ timeout = 3 })
+temptimer = timer({ timeout = 30 })
 temptimer:connect_signal("timeout", function() widget:set_markup(testtemps()) end)
 temptimer:start()
