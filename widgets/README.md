@@ -18,7 +18,7 @@ In case you don't notice the red icon, the widget will grab your attention via a
 To use this widget, simply add the following to your `rc.lua`:
 
 	myTempWidget = load_widget({
-		widget = "widgets.temperature.temp"
+		widget = "widgets.temperature.widget"
 	})
 
 And then add the widget to your wibox (here is an example, although your code may look different):
@@ -33,6 +33,25 @@ You could also add an optional callback to `load_widget` that determines when to
 	})
 
 The above example will hide temperature widget when the temperature falls below 60 degrees and show it when it goes above.
+
+
+### Volume
+Allow user to control volume via the keyboard volume keys and see feedback. This widget is compatible with pulseaudio and automatically gets volume of the relevant output (i.e. if you've switched to HDMI, you'll be controlling the HDMI volume).
+![Max Volume](https://github.com/atsepkov/awesome-zen/blob/master/widgets/volume/1.png)
+![Lower Volume](https://github.com/atsepkov/awesome-zen/blob/master/widgets/volume/2.png)
+![Muted](https://github.com/atsepkov/awesome-zen/blob/master/widgets/volume/3.png)
+
+Install this widget the usual way:
+
+	volume = load_widget({
+		widget = "widgets.volume.widget"
+	})
+
+Since this widget has no icon, `zenstate` does nothing (I use Maato's volumeicon for icon instead, which works great as an icon but not so well with actual audio controls, which is where this widget excels). To map this widget to your volume keys, add the following in your rc.lua clientkeys section:
+
+    awful.key({ }, "XF86AudioRaiseVolume", volume.up),
+    awful.key({ }, "XF86AudioLowerVolume", volume.down),
+    awful.key({ }, "XF86AudioMute", volume.toggle),
 
 
 
