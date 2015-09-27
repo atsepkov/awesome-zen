@@ -17,14 +17,22 @@ function spawn_once(name)
 end
 
 -- loads a widget
-function load_widget(loc, notify)
-    require(loc)
-    if notify then
+function load_widget(config)
+    require(config.widget)
+
+    -- if user defined a zenstate, assign it to the widget so it can respond accordingly
+    if config.zenstate then
+        widget.zenstate = config.zenstate
+    end
+
+    -- notify that the widget was loaded, if asked by rc.lua
+    if config.notify then
         naughty.notify({
             title = "Widget Loaded",
-            text = "Loaded " .. loc
+            text = "Loaded " .. config.widget
         })
     end
+
     return widget
 end
 

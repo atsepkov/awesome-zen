@@ -24,3 +24,11 @@ Same as above but allows you different name and command. For example, say you wa
 
 ### load_script
 Load script relative to `.config/awesome` directory, optionally takes a second argument that will notify that script loaded if set to `true`. Use this to load scripts from this repo or even your own, since it has safety mechanism already built in should script fail or path be incorrect.
+
+### load_widget
+Load widget into your task bar. You can define the following options:
+
+	widget:	name of the widget to Load
+	zenstate (optional): callback that determines whether the hide the widget, omitting this will put widget in always-on state
+	notify: generate notification message when widget is loaded (useful for debugging or tracking which widgets loaded)
+
