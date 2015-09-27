@@ -33,7 +33,7 @@ function testtemps()
         else
             color = font .. "color='#A9F5A9'>"
         end
-        return color .. "" .. tempstr .. "</span>"
+        return color .. "" .. temp .. "</span>"
     end
     return "N/A" -- something failed
 end
