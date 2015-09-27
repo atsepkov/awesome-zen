@@ -36,9 +36,9 @@ The above example will hide temperature widget when the temperature falls below 
 
 
 ### Volume
-Allow user to control volume via the keyboard volume keys and see feedback. This widget is compatible with pulseaudio and automatically gets volume of the relevant output (i.e. if you've switched to HDMI, you'll be controlling the HDMI volume).
-![Max Volume](https://github.com/atsepkov/awesome-zen/blob/master/widgets/volume/1.png)
-![Lower Volume](https://github.com/atsepkov/awesome-zen/blob/master/widgets/volume/2.png)
+Allow user to control volume via the keyboard volume keys and see feedback. This widget is compatible with pulseaudio and automatically gets volume of the relevant output (i.e. if you've switched to HDMI, you'll be controlling the HDMI volume).  
+![Max Volume](https://github.com/atsepkov/awesome-zen/blob/master/widgets/volume/1.png)  
+![Lower Volume](https://github.com/atsepkov/awesome-zen/blob/master/widgets/volume/2.png)  
 ![Muted](https://github.com/atsepkov/awesome-zen/blob/master/widgets/volume/3.png)
 
 Install this widget the usual way:
