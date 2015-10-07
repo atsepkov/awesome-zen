@@ -27,7 +27,6 @@ function mixercommand(command)
         text = status,
         replaces_id = last_id,
         icon = pic,
-        timeout = 50,
     }).id
 end
 function volumeup()

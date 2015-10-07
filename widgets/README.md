@@ -1,6 +1,6 @@
 Widgets
 -------
-This directory contains a list od widget that you can use in your theme.
+This directory contains a list of widget that you can use in your theme.
 
 ## Existing Widgets
 
@@ -52,6 +52,15 @@ Since this widget has no icon, `zenstate` does nothing (I use Maato's volumeicon
     awful.key({ }, "XF86AudioRaiseVolume", volume.up),
     awful.key({ }, "XF86AudioLowerVolume", volume.down),
     awful.key({ }, "XF86AudioMute", volume.toggle),
+
+
+## To Add
+- CPU Usage
+- Memory Usage
+- Audio Player
+- Calendar
+- Battery
+- Network
 
 
 

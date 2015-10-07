@@ -1,6 +1,6 @@
 -- Alexander Tsepkov, 2015
 --
--- Temperature Monitor for awesome that changes color as the temperature goes up
+-- Memory Monitor for awesome that changes color as the memory usage goes up
 -- dependency: FontAwesome
 
 
@@ -9,46 +9,46 @@ local naughty = require("naughty")
 
 local last_id
 widget = wibox.widget.textbox()
-function testtemps()
-    local fd = io.popen(os.getenv("HOME") .. "/.config/awesome/widgets/temperature/sensors.sh")
+function testmem()
+    local fd = io.popen(os.getenv("HOME") .. "/.config/awesome/widgets/memory/mem.sh simple")
     if fd then
         -- occasionally awesome craps out for no reason running the operation
         -- and fd is nil, do nothing in that case (aside from ignoring the value
         -- rather than throwing an error), it will fix itself next run
-        local tempstr = fd:read("*all")
-        local temp = tonumber(tempstr)
+        local memstr = fd:read("*all")
+        local mem = tonumber(memstr)
         fd:close()
         local color
         local font = "<span font='FontAwesome 8' "
-        if temp > 90 then
+        if mem > 94 then
             color = font .. "color='#FF0000'>"
             last_id = naughty.notify({
-                title = "Temperature Critical",
-                text = "CPU temperature is dangerously hot, turn it off to prevent damage.",
+                title = "High Memory Usage",
+                text = "Consider closing some processes to prevent miserable experience.",
                 preset = naughty.config.presets.critical,
                 replaces_id = last_id,
-                icon = os.getenv("HOME") .. "/.config/awesome/widgets/temperature/" .. "hot.png"
+                icon = os.getenv("HOME") .. "/.config/awesome/widgets/memory/" .. "max.png"
             }).id
-        elseif temp > 80 then
+        elseif mem > 85 then
             color = font .. "color='#FF8000'>"
-        elseif temp > 70 then
+        elseif mem > 75 then
             color = font .. "color='#F5F549'>"
         else
             color = font .. "color='#A9F5A9'>"
         end
 
         if widget.zenstate ~= nil then
-            if widget.zenstate(temp) then
+            if widget.zenstate(mem) then
                 return ""
             end
         end
 
-        return color .. "" .. temp .. "</span>"
+        return color .. "" .. mem .. "</span>"
     end
-    return "N/A" -- something failed
+    return "N/A" -- something failed
 end
 
 -- update every 30 secs
-temptimer = timer({ timeout = 30 })
-temptimer:connect_signal("timeout", function() widget:set_markup(testtemps()) end)
-temptimer:start()
+memtimer = timer({ timeout = 30 })
+memtimer:connect_signal("timeout", function() widget:set_markup(testmem()) end)
+memtimer:start()
