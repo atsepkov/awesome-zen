@@ -4,6 +4,7 @@
 -- dependency: FontAwesome
 
 
+local awful = require("awful")
 local wibox = require("wibox")
 local naughty = require("naughty")
 
@@ -48,7 +49,19 @@ function testmem()
     return "N/A" -- something failed
 end
 
+-- to display on hover event
+function tooltip()
+    local fd = io.popen(os.getenv("HOME") .. "/.config/awesome/widgets/memory/mem.sh summary")
+    local str = fd:read("*all")
+    return str
+end
+tooltip_display = awful.tooltip({ objects = {widget}, })
+tooltip_display:set_text(tooltip())
+
 -- update every 30 secs
 memtimer = timer({ timeout = 30 })
-memtimer:connect_signal("timeout", function() widget:set_markup(testmem()) end)
+memtimer:connect_signal("timeout", function()
+    widget:set_markup(testmem())
+    tooltip_display:set_text(tooltip())
+end)
 memtimer:start()
