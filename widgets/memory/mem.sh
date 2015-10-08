@@ -10,6 +10,6 @@ case "$1" in
 	summary)
 		free -h
 		echo ''
-		ps -eo pid,pmem,rss,comm --sort -rss | head -n 20
+		ps -eo pid:6,time:10,pmem:6,rss:8,comm --sort -rss | head -n 20
 	;;
 esac

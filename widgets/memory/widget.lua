@@ -61,7 +61,8 @@ function show_tooltip()
         title = "Memory Usage",
         text = content,
         timeout = 0,
-        hover_timeout = 0.5
+        hover_timeout = 0.5,
+        width = 60*8
     })
 end
 
@@ -71,6 +72,7 @@ function hide_tooltip()
     end
 end
 
+widget:set_markup(testmem())
 widget:connect_signal("mouse::enter", show_tooltip)
 widget:connect_signal("mouse::leave", hide_tooltip)
 

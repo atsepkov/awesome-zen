@@ -48,6 +48,8 @@ function testtemps()
     return "N/A" -- something failed
 end
 
+widget:set_markup(testtemps())
+
 -- update every 30 secs
 temptimer = timer({ timeout = 30 })
 temptimer:connect_signal("timeout", function() widget:set_markup(testtemps()) end)
