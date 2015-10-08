@@ -33,8 +33,7 @@ function load_widget(config)
         })
     end
 
-    local w = widget
-    return w
+    return widget
 end
 
 -- load utility if not loaded yet, if loaded avoid loading it twice, print message if asked

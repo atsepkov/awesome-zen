@@ -8,6 +8,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 local naughty = require("naughty")
 
+
 local last_id
 widget = wibox.widget.textbox()
 function testmem()
@@ -44,9 +45,9 @@ function testmem()
             end
         end
 
-        return color .. "" .. mem .. "</span>"
+        return color .. "" .. mem .. " </span>"
     end
-    return "N/A" -- something failed
+    return "N/A " -- something failed
 end
 
 -- to display on hover event

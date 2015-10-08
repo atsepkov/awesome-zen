@@ -43,9 +43,9 @@ function testtemps()
             end
         end
 
-        return color .. "" .. temp .. "</span>"
+        return color .. "" .. temp .. " </span>"
     end
-    return "N/A" -- something failed
+    return "N/A " -- something failed
 end
 
 widget:set_markup(testtemps())
