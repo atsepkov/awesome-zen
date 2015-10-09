@@ -36,7 +36,7 @@ function testmem()
         elseif mem > 75 then
             color = font .. "color='#F5F549'>"
         else
-            color = font .. "color='#A9F5A9'>"
+            color = font .. "color='#669900'>"
         end
 
         if widget.zenstate ~= nil then
@@ -59,7 +59,7 @@ function show_tooltip()
     local str = fd:read("*all")
     local content = string.format('<span font="%s" foreground="%s">%s</span>', font, text_color, str)
     summary = naughty.notify({
-        title = "Memory Usage",
+--        title = "Memory Usage",
         text = content,
         timeout = 0,
         hover_timeout = 0.5,

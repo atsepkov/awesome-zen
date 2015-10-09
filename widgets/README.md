@@ -61,6 +61,7 @@ Since this widget has no icon, `zenstate` does nothing (I use Maato's volumeicon
 - Calendar
 - Battery
 - Network
+- Define/Search Word
 
 
 

@@ -34,7 +34,7 @@ function testtemps()
         elseif temp > 70 then
             color = font .. "color='#F5F549'>"
         else
-            color = font .. "color='#A9F5A9'>"
+            color = font .. "color='#669900'>"
         end
 
         if widget.zenstate ~= nil then
