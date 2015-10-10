@@ -58,6 +58,12 @@ Since this widget has no icon, `zenstate` does nothing (I use Maato's volumeicon
 Display memory usage as a percentage and show more detail, including biggest-offending processes when user hovers over. Like temperature widget, color adjusts automatically based on how much memory you use and informs you when the status reaches critical.
 
 ![Normal](https://github.com/atsepkov/awesome-zen/blob/master/widgets/memory/1.png)
+![High](https://github.com/atsepkov/awesome-zen/blob/master/widgets/memory/2.png)
+![Dangerous](https://github.com/atsepkov/awesome-zen/blob/master/widgets/memory/3.png)
+
+As with temperature widget, the widget will notify you when the memory usage gets uncomfortably high but before the point of no return:
+
+![Critical](https://github.com/atsepkov/awesome-zen/blob/master/widgets/temperature/notification_example.png)
 
 Hover example:
 
