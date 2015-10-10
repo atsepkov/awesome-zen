@@ -63,7 +63,7 @@ Display memory usage as a percentage and show more detail, including biggest-off
 
 As with temperature widget, the widget will notify you when the memory usage gets uncomfortably high but before the point of no return:
 
-![Critical](https://github.com/atsepkov/awesome-zen/blob/master/widgets/temperature/notification_example.png)
+![Critical](https://github.com/atsepkov/awesome-zen/blob/master/widgets/memory/notification_example.png)
 
 Hover example:
 
