@@ -139,4 +139,113 @@ function position.at(geometry, c, p)
     })
 end
 
+-- A smarter version of the above function, computes existing window state to see if it already matches
+-- a position above, and stacks direction intuitively
+-- Direction should be a string identifying 1 of 4 directions: left, right, top, bottom
+function position.compound(direction, c, p)
+    local c = c or capi.client.focus
+    local c_geometry = c:geometry()
+    local screen = c.screen or awful.screen.getbycoord(c_geometry.x, c_geometry.y)
+    local s_geometry
+    if p then
+        s_geometry = p:geometry()
+    else
+        s_geometry = capi.screen[screen].geometry
+    end
+
+    empirical_geometry = {
+        x = (c_geometry.x - s_geometry.x) / s_geometry.width,
+        y = (c_geometry.y - s_geometry.y) / s_geometry.height,
+        h = c_geometry.height / s_geometry.height,
+        w = c_geometry.width / s_geometry.width
+    }
+
+    -- figure out if we're already in one of the preset states
+    local state = nil
+    for key, val in pairs(coords) do
+        if equals(val, empirical_geometry) then
+            state = key
+            break
+        end
+    end
+
+    local geometry
+    if state == nil then
+        -- just starting, no stack yet
+        geometry = coords[direction]
+    elseif direction == 'left' then
+        if state == 'left' then
+            geometry = coords['left_third']
+        elseif state == 'top' then
+            geometry = coords['top_left']
+        elseif state == 'bottom' then
+            geometry = coords['bottom_left']
+        elseif state == 'right' then
+            geometry = coords['middle_third']
+        elseif state == 'middle_third' then
+            geometry = coords['left']
+        elseif state == 'right_third' then
+            geometry = coords['right']
+        elseif state == 'top_right' then
+            geometry = coords['top']
+        elseif state == 'bottom_right' then
+            geometry = coords['bottom']
+        end
+    elseif direction == 'right' then
+        if state == 'right' then
+            geometry = coords['right_third']
+        elseif state == 'top' then
+            geometry = coords['top_right']
+        elseif state == 'bottom' then
+            geometry = coords['bottom_right']
+        elseif state == 'left' then
+            geometry = coords['middle_third']
+        elseif state == 'middle_third' then
+            geometry = coords['right']
+        elseif state == 'left_third' then
+            geometry = coords['left']
+        elseif state == 'top_left' then
+            geometry = coords['top']
+        elseif state == 'bottom_left' then
+            geometry = coords['bottom']
+        end
+    elseif direction == 'top' then
+        if state == 'left' then
+            geometry = coords['top_left']
+        elseif state == 'bottom' then
+            geometry = coords['middle_third']
+        elseif state == 'right' then
+            geometry = coords['top_right']
+        elseif state == 'middle_third' then
+            geometry = coords['top']
+        elseif state == 'bottom_left' then
+            geometry = coords['left']
+        elseif state == 'bottom_right' then
+            geometry = coords['right']
+        end
+    elseif direction == 'bottom' then
+        if state == 'left' then
+            geometry = coords['bottom_left']
+        elseif state == 'top' then
+            geometry = coords['middle_third']
+        elseif state == 'right' then
+            geometry = coords['bottom_right']
+        elseif state == 'middle_third' then
+            geometry = coords['bottom']
+        elseif state == 'top_left' then
+            geometry = coords['left']
+        elseif state == 'top_right' then
+            geometry = coords['right']
+        end
+    end
+
+    if geometry == nil then return c:geometry() end
+    return c:geometry({
+        x = s_geometry.x + s_geometry.width * geometry.x,
+        y = s_geometry.y + s_geometry.height * geometry.y,
+        width = s_geometry.width * geometry.w,
+        height = s_geometry.height * geometry.h
+    })
+end
+
 return position

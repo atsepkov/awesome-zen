@@ -38,4 +38,11 @@ Positions can be specified as a table `{x, y, w, h}` or as a string to identify 
 	right_two_thirds
 	middle_two_thirds
 
+There is also a compound-resize option in positions module. It stacks previous tiling actions on top of each other in an intuitive manner. For example, when the window is on the `left` half of the screen, sending `down` event will move it to `bottom_left` position. In this way you can iterate through most of the presets in an intuitive manner with just 4 shortcuts:
+
+	awful.key({ modkey, "Shift"   }, "Down", function (c) position.compound('bottom', c) end),
+	awful.key({ modkey, "Shift"   }, "Left", function (c) position.compound('left', c) end),
+	awful.key({ modkey, "Shift"   }, "Right", function (c) position.compound('right', c) end),
+	awful.key({ modkey, "Shift"   }, "Up", function (c) position.compound('top', c) end),
+
 
