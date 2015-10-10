@@ -94,7 +94,6 @@ Make sure your widget follows these `Zen` guidelines, otherwise your pull reques
 
 ## To Add
 - CPU Usage
-- Memory Usage
 - Audio Player
 - Calendar
 - Battery
