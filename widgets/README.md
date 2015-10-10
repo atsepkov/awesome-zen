@@ -60,6 +60,7 @@ Display memory usage as a percentage and show more detail, including biggest-off
 ![Normal](https://github.com/atsepkov/awesome-zen/blob/master/widgets/memory/1.png)
 
 Hover example:
+
 ![Hover](https://github.com/atsepkov/awesome-zen/blob/master/widgets/memory/hover_example.png)
 
 To use this widget, simply add the following to your `rc.lua`:
