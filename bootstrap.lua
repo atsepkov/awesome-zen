@@ -65,11 +65,14 @@ function load_script(name, notify)
 end
 
 
+-- rounding error is pretty bad in lua
+local EPSILON = 1e-3
 -- compare two tables, because out of the box lua sucks
 function equals(a, b)
     if a == b then return true end
     local aType = type(a)
     local bType = type(b)
+    if aType == 'number' and bType == 'number' and math.abs(a - b) < EPSILON then return true end
     if aType ~= bType then return false end
     if aType ~= 'table' then return false end
 
@@ -86,4 +89,23 @@ function equals(a, b)
         if not seen[key] then return false end
     end
     return true
+end
+
+
+-- dump loa table to string
+function dump(tbl, indent)
+    local output = ''
+    if not indent then indent = 0 end
+    for k, v in pairs(tbl) do
+        formatting = string.rep("  ", indent) .. k .. ": "
+        if type(v) == "table" then
+            output = output .. formatting .. "\n"
+            tprint(v, indent+1)
+        elseif type(v) == 'boolean' then
+            output = output .. formatting .. tostring(v) .. "\n"
+        else
+            output = output .. formatting .. v .. "\n"
+        end
+    end
+    return output
 end

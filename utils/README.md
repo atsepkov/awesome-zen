@@ -8,10 +8,10 @@ By default, awesome WM doesn't remember positions of your floating windows when 
 	load_script("utils/remember_positions", true)
 
 
-## positions.lua
+## ondemand_tile.lua
 Move floating window into any corner/tile via convenient shortcuts, i.e:
 
-	local positions = require('utils.positions')
+	local positions = require('utils.ondemand_tile')
 
 	-- later in code
 	awful.key({ modkey, "Shift"   }, "Down", function (c) position.at('bottom', c) end),

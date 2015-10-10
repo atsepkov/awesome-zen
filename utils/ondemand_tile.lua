@@ -12,6 +12,7 @@ local capi =
     client = client,
     mouse = mouse,
     screen = screen,
+    wibox = wibox,
     awesome = awesome,
 }
 local coords = {
@@ -129,7 +130,8 @@ function position.at(geometry, c, p)
     if p then
         s_geometry = p:geometry()
     else
-        s_geometry = capi.screen[screen].geometry
+--        s_geometry = capi.screen[screen].geometry
+        s_geometry = capi.screen[screen].workarea
     end
     return c:geometry({
         x = s_geometry.x + s_geometry.width * geometry.x,
@@ -150,7 +152,7 @@ function position.compound(direction, c, p)
     if p then
         s_geometry = p:geometry()
     else
-        s_geometry = capi.screen[screen].geometry
+        s_geometry = capi.screen[screen].workarea
     end
 
     empirical_geometry = {
@@ -169,6 +171,8 @@ function position.compound(direction, c, p)
         end
     end
 
+--    local naughty = require('naughty')
+--    naughty.notify({text=dump(empirical_geometry)})
     local geometry
     if state == nil then
         -- just starting, no stack yet
