@@ -213,10 +213,10 @@ function position.compound(direction, c, p)
         if state == 'left' then
             geometry = coords['top_left']
         elseif state == 'bottom' then
-            geometry = coords['middle_third']
+            geometry = coords['center_pad']
         elseif state == 'right' then
             geometry = coords['top_right']
-        elseif state == 'middle_third' then
+        elseif state == 'center_pad' then
             geometry = coords['top']
         elseif state == 'bottom_left' then
             geometry = coords['left']
@@ -227,10 +227,10 @@ function position.compound(direction, c, p)
         if state == 'left' then
             geometry = coords['bottom_left']
         elseif state == 'top' then
-            geometry = coords['middle_third']
+            geometry = coords['center_pad']
         elseif state == 'right' then
             geometry = coords['bottom_right']
-        elseif state == 'middle_third' then
+        elseif state == 'center_pad' then
             geometry = coords['bottom']
         elseif state == 'top_left' then
             geometry = coords['left']

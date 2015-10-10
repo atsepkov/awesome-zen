@@ -51,14 +51,14 @@ function testmem()
 end
 
 -- to display on hover event
-local summary = nil
+local summary1 = nil
 function show_tooltip()
     local font = 'monospace 8'
     local text_color = '#FFFFFF'
     local fd = io.popen(os.getenv("HOME") .. "/.config/awesome/widgets/memory/mem.sh summary")
     local str = fd:read("*all")
     local content = string.format('<span font="%s" foreground="%s">%s</span>', font, text_color, str)
-    summary = naughty.notify({
+    summary1 = naughty.notify({
 --        title = "Memory Usage",
         text = content,
         timeout = 0,
@@ -68,9 +68,9 @@ function show_tooltip()
 end
 
 function hide_tooltip()
-    if summary ~= nil then
-        naughty.destroy(summary)
-    end
+--    if summary ~= nil then
+--        naughty.destroy(summary)
+--    end
 end
 
 widget:set_markup(testmem())
