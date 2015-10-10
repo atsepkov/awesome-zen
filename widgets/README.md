@@ -54,16 +54,6 @@ Since this widget has no icon, `zenstate` does nothing (I use Maato's volumeicon
     awful.key({ }, "XF86AudioMute", volume.toggle),
 
 
-## To Add
-- CPU Usage
-- Memory Usage
-- Audio Player
-- Calendar
-- Battery
-- Network
-- Define/Search Word
-
-
 ## Memory Usage
 Display memory usage as a percentage and show more detail, including biggest-offending processes when user hovers over. Like temperature widget, color adjusts automatically based on how much memory you use and informs you when the status reaches critical.
 
@@ -93,3 +83,15 @@ Make sure your widget follows these `Zen` guidelines, otherwise your pull reques
 	- You must include a handler for user-defined `zenstate` callback, a function that determines when the widget can hide or change state (you can define inputs for the callback and document them in this README, the function will return a boolean identifying true (show) and false (hide) states)
 	- Your widget must be named `widget` by the end of your script, since this is what `load_widget` script assumes as the name and returns to the user
 - You must include a brief description and screenshot or two of your widget, awesome WM is cluttered with undocumented widgets that users have no way of previewing before installing. Once again, I don't want this repository to become another widget graveyard.
+
+
+## To Add
+- CPU Usage
+- Memory Usage
+- Audio Player
+- Calendar
+- Battery
+- Network
+- Define/Search Word
+
+
