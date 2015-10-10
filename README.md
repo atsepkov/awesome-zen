@@ -32,3 +32,11 @@ Load widget into your task bar. You can define the following options:
 	zenstate (optional): callback that determines whether the hide the widget, omitting this will put widget in always-on state
 	notify: generate notification message when widget is loaded (useful for debugging or tracking which widgets loaded)
 
+### equals
+Deep equality test function since out of the box lua fails to compare tables properly.
+
+	if equals(table1, table2) then
+		-- tables equal
+	end
+
+

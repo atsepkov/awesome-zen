@@ -64,6 +64,22 @@ Since this widget has no icon, `zenstate` does nothing (I use Maato's volumeicon
 - Define/Search Word
 
 
+## Memory Usage
+Display memory usage as a percentage and show more detail, including biggest-offending processes when user hovers over. Like temperature widget, color adjusts automatically based on how much memory you use and informs you when the status reaches critical.
+
+![Normal](https://github.com/atsepkov/awesome-zen/blob/master/widgets/memory/1.png)
+
+Hover example:
+![Hover](https://github.com/atsepkov/awesome-zen/blob/master/widgets/memory/hover_example.png)
+
+To use this widget, simply add the following to your `rc.lua`:
+
+	memoryWidget = load_widget({
+		widget = "widgets.memory.widget"
+	})
+
+As with temperature widget, this widget accepts a zenstate parameter telling it when to hide, if ever.
+
 
 ## Adding New Widgets
 Interested in adding your own widget to `Zen` library? Great!
